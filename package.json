@@ -1,0 +1,15 @@
+{
+  "name": "vuebnb",
+  "version": "1.0.0",
+  "description": "Full-Stack Vue 2 and Laravel 5",
+  "main": "index.js",
+  "author": "joma74@gmail.com",
+  "license": "MIT",
+  "scripts": {
+    "browser-sync-start" : "browser-sync start --config bs-config.js"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.23.5",
+    "poi": "^9.6.12"
+  }
+}
