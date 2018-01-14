@@ -13,19 +13,18 @@
 	<div id="app">
 		<h3>Grocery list</h3>
 		<ul>
-			<li v-for="grocery in groceries">{{ grocery }}</li>
+			<grocery-item title="Bread"></grocery-item>
+			<grocery-item title="Milk"></grocery-item>
 		</ul>
 	</div>
 	<script>
-		var app = new Vue({
-			el: "#app",
-			data: {
-				groceries: ["Bread", "Milk"]
-			}
+		Vue.component("grocery-item", {
+			props:["title"],
+			template:"<li>{{title}}</li>"
 		})
-		setTimeout(function () {
-			app.groceries.push('Apples');
-		}, 2000);
+		var app = new Vue({
+			el: "#app"
+		})
 	</script>
 </body>
 
