@@ -17,12 +17,16 @@
 		</ul>
 	</div>
 	<script>
-		new Vue({
+		var app = new Vue({
 			el: "#app",
 			data: {
 				groceries: ["Bread", "Milk"]
 			}
-		})</script>
+		})
+		setTimeout(function () {
+			app.groceries.push('Apples');
+		}, 2000);
+	</script>
 </body>
 
 </html>
