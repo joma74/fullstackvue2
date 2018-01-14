@@ -23,3 +23,9 @@ var app = new Vue({
     }
   }
 });
+
+document.addEventListener("keyup", function(evt) {
+  if (evt.keyCode === 27 && app.modalOpen) { // <- This Is Genius !:) //
+    app.modalOpen = false;
+  }
+});
