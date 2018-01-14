@@ -4,6 +4,7 @@ var app = new Vue({
     headerImageStyle: {
       "background-image": "url('../../test/images/header.jpg')"
     },
+    contracted: true,
     title: sample.title,
     address: sample.address,
     about: sample.about,
