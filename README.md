@@ -6,16 +6,16 @@ After this recommended book at https://www.packtpub.com/application-development/
 
 Load of commands best working :) after issueing `homestead ssh` followed by ` cd~/code/Full-Stack-Vue.js-2-and-Laravel-5/vuebnb`.
 
-```sh
+```.sh-session
 artisan migrate:fresh \\ drops and re-ups all migrations under ./database/migrations
 
-artisan db:seed \\ re-runs DatabaseSeeder
+artisan db:seed \\ re-runs SDatabaseSeeder
 artisan db:seed --class=ListingsTableSeeder \\ re-runs only ListingsTableSeeder
 
 artisan migrate:fresh --seed \\ combine re-creation of schemes with seeding
 ```
 
-```sh
+```.sh-session
 vagrant@homestead:~/code/Full-Stack-Vue.js-2-and-Laravel-5/vuebnb$ artisan migrate:fresh --seed
 Dropped all tables successfully.
 Migration table created successfully.
