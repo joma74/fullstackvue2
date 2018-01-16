@@ -6,6 +6,24 @@ After this recommended book at https://www.packtpub.com/application-development/
 
 Load of commands best working :) after issueing `homestead ssh` followed by ` cd~/code/Full-Stack-Vue.js-2-and-Laravel-5/vuebnb`.
 
+## tinkering
+
+```
+artisan tinker // opens Psy Shell REPL
+
+>>> $listing="abc"
+=> "abc"
+>>> echo $listing
+abc⏎
+>>> $listing='abc'
+=> "abc"
+>>> echo $listing
+abc⏎
+
+```
+
+### db migration/seeding
+
 ```.sh-session
 artisan migrate:fresh \\ drops and re-ups all migrations under ./database/migrations
 
@@ -26,4 +44,39 @@ Migrated:  2014_10_12_100000_create_password_resets_table
 Migrating: 2018_01_16_204913_create_listings_table
 Migrated:  2018_01_16_204913_create_listings_table
 Seeding: ListingsTableSeeder
+```
+
+### db tinkering
+P.S. Should be MYSQL DDL
+```
+artisan tinker // opens Psy Shell REPL
+
+>>> DB::select('DESCRIBE listings;'); // Describes Table listings
+
+>>> DB::able('listings')->count();
+
+>>> DB::table('listings')->get()->first();
+
+>>> DB::select('show tables');
+```
+
+### eloquent tinkering
+
+```
+artisan make:model Listing // creates app/Listing.php
+
+artisan tinker  // opens Psy Shell REPL
+
+>>> \App\Listing::first(); // echoes first entity in listing
+
+>>> \App\Listing::all(); // echoes all entities in listing
+
+>>> foreach(\App\Listing::all() as $listing) { echo '['.$listing->id.'] '.$listing->address."\n"; } // echoes id and address for each entity in listing
+
+// shows that type of attribute is casted as boolean
+>>> $listing=\App\Listing::first();
+>>> gettype($listing->amenity_wifi);
+=> "boolean"
+>>> $listing->amenity_wifi;
+=> true
 ```
