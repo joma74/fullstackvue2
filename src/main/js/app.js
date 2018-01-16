@@ -1,3 +1,7 @@
+// import Vue from "vue";
+/**
+ * @type {Vue}
+ */
 var app = new Vue({
   el: "#app",
   data: {
@@ -12,6 +16,23 @@ var app = new Vue({
     amenities: sample.amenities,
     prices: sample.prices
   },
+  beforeCreate: function() {
+    console.log("vue-lcy: beforeCreate -> " + this.title);
+  },
+  created: function() {
+    console.log("vue-lcy: created -> " + this.title);
+    document.addEventListener("keyup", this.escapeKeyListener /* <- This Is Genius !:) */);
+  },
+  methods: {
+    /**
+     * @param {KeyboardEvent} evt
+     */
+    escapeKeyListener: function(evt) {
+      if (evt.keyCode === 27 && this.modalOpen /* <- This Is Genius !:) */) {
+        this.modalOpen = false;
+      }
+    }
+  },
   watch: {
     modalOpen: function() {
       var className = "modal-open";
@@ -21,11 +42,9 @@ var app = new Vue({
         document.body.classList.remove(className);
       }
     }
-  }
-});
-
-document.addEventListener("keyup", function(evt) {
-  if (evt.keyCode === 27 && app.modalOpen) { // <- This Is Genius !:) //
-    app.modalOpen = false;
+  },
+  destroyed: function() {
+    console.log("vue-lcy: destroyed -> " + this.title);
+    document.removeEventListener("keyup", this.escapeKeyListener);
   }
 });
