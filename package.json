@@ -6,10 +6,13 @@
   "author": "joma74@gmail.com",
   "license": "MIT",
   "scripts": {
-    "browser-sync-start" : "browser-sync start --config bs-config.js"
+    "browser-sync-start": "browser-sync start --config bs-config.js"
   },
   "devDependencies": {
     "browser-sync": "^2.23.5",
     "poi": "^9.6.12"
+  },
+  "dependencies": {
+    "vue": "^2.5.13"
   }
 }
