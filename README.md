@@ -2,9 +2,25 @@
 
 After this recommended book at https://www.packtpub.com/application-development/full-stack-vuejs-2-and-laravel-5
 
+## laravel setup after clone
+
+```
+echo "alias homestead='function __homestead() { (cd ~/entwicklung/Homestead && vagrant $*); unset -f __homestead; }; __homestead'" > ~/.bash_alias
+. ~/.bash_alias
+
+homestead up
+homestead ssh
+artisan key:generate
+composer install
+composer dump-autoload
+CTRL+C
+cd ~/Homestead
+homestead provision
+```
+
 ## laravel/artisan how-to
 
-Load of commands best working :) after issueing `homestead ssh` followed by ` cd~/code/Full-Stack-Vue.js-2-and-Laravel-5/vuebnb`.
+Load of commands best working :) after issueing `homestead ssh` followed by ` cd ~/code`.
 
 ## tinkering
 
@@ -53,7 +69,7 @@ artisan tinker // opens Psy Shell REPL
 
 >>> DB::select('DESCRIBE listings;'); // Describes Table listings
 
->>> DB::able('listings')->count();
+>>> DB::table('listings')->count();
 
 >>> DB::table('listings')->get()->first();
 
