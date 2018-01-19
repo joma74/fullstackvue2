@@ -5,8 +5,8 @@ After this recommended book at https://www.packtpub.com/application-development/
 ## laravel setup after clone
 
 ```
-echo "alias homestead='function __homestead() { (cd ~/entwicklung/Homestead && vagrant $*); unset -f __homestead; }; __homestead'" > ~/.bash_alias
-. ~/.bash_alias
+echo "alias homestead='function __homestead() { (cd ~/entwicklung/Homestead && vagrant $*); unset -f __homestead; }; __homestead'" > ~/.bash_aliases
+. ~/.bash_aliases
 
 homestead up
 homestead ssh
